@@ -1,0 +1,70 @@
+﻿<Window x:Class="Order_Report.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Order_Report"
+        mc:Ignorable="d"
+        Title="meow" Height="620" Width="900" Loaded="Window_Loaded" Background="#d7bbaa">
+
+    <Grid>
+
+        <DataGrid Name="OrderDataGrid" HorizontalAlignment="Left" Height="226" AutoGenerateColumns="False" Margin="36,28,0,0" VerticalAlignment="Top" Width="425">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Order_ID}" Header="Order_ID"/>
+                <DataGridTextColumn Binding="{Binding Address}" Header="Address"/>
+                <DataGridTextColumn Binding="{Binding Payment}" Header="Payment"/>
+                <DataGridTextColumn Binding="{Binding Status}" Header="Status"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid>
+            <TextBox Name="tbOrderId" Margin="565,47,0,0" TextWrapping="Wrap" Text=""/>
+        </Grid>
+        <Grid>
+            <TextBox Name="tbAddess" Margin="565,77,0,0" TextWrapping="Wrap" Text=""/>
+        </Grid>
+        <Grid>
+            <TextBox Name="tbPayment" Margin="565,107,0,0" TextWrapping="Wrap" Text=""/>
+        </Grid>
+        <Grid>
+            <TextBox Name="tbStatus" Margin="565,137,0,0" TextWrapping="Wrap" Text=""/>
+        </Grid>
+
+        <Button Content="Add" Margin="565,227,0,0" Click="Button_Add_Click" />
+        <Button Content="Delete" Margin="565,267,0,0" Click="Button_Delete_Click" />
+        <Button Content="Update" Margin="565,307,0,0" Click="Button_Update_Click" />
+
+        <Button Content="Export CSV" Margin="665,200,0,0" Width="120" Click="Export_Csv_Click" />
+        <Button Content="Export Excel" Margin="665,240,0,0" Width="120" Click="Export_Excel_Click" />
+
+        <Button Content="Import CSV" Margin="665,295,0,0" Width="120" Click="Import_Csv_Click" />
+        <Button Content="Import Excel" Margin="665,335,0,0" Width="120" Click="Import_Excel_Click" />
+
+        <Button Content="Добавить изображение" Margin="645,470,0,0" Width="195" Click="OpenAddImage"/>
+
+        <TextBox Name="tbFiltration" Margin="565,400,0,0" TextWrapping="Wrap" Text="" TextChanged="TextBox_TextChanged"/>
+        <ComboBox Name="cbFiltration" ItemsSource="{Binding}" SelectedValuePath="Order_ID" DisplayMemberPath="Order_ID" Width="150" Height="23" Margin="565,430,0,0" SelectionChanged="cbP_SelectionChanged"/>
+        <Button Content="PDF" Margin="565,470,0,0" Click="Button_PDF_Click" Width="75"/>
+
+        <DataGrid Name="ClientDataGrid" HorizontalAlignment="Left" Height="226" AutoGenerateColumns="False" Margin="36,292,0,0" VerticalAlignment="Top" Width="425">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Order_ID}" Header="Order_ID"/>
+                <DataGridTextColumn Binding="{Binding ClientName}" Header="Client Name"/>
+                <DataGridTextColumn Binding="{Binding StaffName}" Header="Staff Name"/>
+                <DataGridTextColumn Binding="{Binding PostTitle}" Header="Post Title"/>
+                <DataGridTextColumn Binding="{Binding ProductTitle}" Header="Product Title"/>
+                <DataGridTextColumn Binding="{Binding ProductAmount}" Header="Amount"/>
+                <DataGridTextColumn Binding="{Binding Address}" Header="Address"/>
+                <DataGridTextColumn Binding="{Binding Payment}" Header="Payment"/>
+                <DataGridTextColumn Binding="{Binding Status}" Header="Status"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <ComboBox Name="ClientsComboBox" Width="150" Height="23" Margin="565,520,0,0" SelectionChanged="ClientsComboBox_SelectionChanged"/>
+
+        <Image Source="C:\Users\user\source\repos\Order_Report\Order_Report\Pictures\cat.png" Margin="-38,429,638,0" />
+        <Image Source="C:\Users\user\source\repos\Order_Report\Order_Report\Pictures\cat_2.png" Margin="342,159,301,277"/>
+
+    </Grid>
+</Window>
